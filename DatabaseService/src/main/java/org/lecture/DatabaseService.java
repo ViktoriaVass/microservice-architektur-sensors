@@ -1,7 +1,13 @@
 package org.lecture;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class DatabaseService {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
+
+	public static void main(String[] args) {
+		SpringApplication.run(DatabaseService.class, args);
+	}
+
 }
