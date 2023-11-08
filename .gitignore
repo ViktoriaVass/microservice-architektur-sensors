@@ -1,4 +1,5 @@
-# Default ignored files
+# Ignored files:
 /shelf/
 /workspace.xml
 HELP.md
+./idea
