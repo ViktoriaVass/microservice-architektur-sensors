@@ -111,6 +111,21 @@
 					</rulesets>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.15.3</version>
+				<configuration>
+					<targetClasses>
+						<param>DatabaseService/src/test/java/org/lecture/*</param>
+					</targetClasses>
+					<targetTests>
+						<param>DatabaseService/src/test/java/org/lecture/*</param>
+					</targetTests>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
