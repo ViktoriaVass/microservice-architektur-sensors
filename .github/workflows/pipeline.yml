@@ -71,7 +71,7 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '20'
-      - run: mvn verify -Pjmeter-tests
+      - run: mvn verify
 
   build:
     runs-on: ubuntu-latest
