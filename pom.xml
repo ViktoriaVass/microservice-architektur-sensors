@@ -76,6 +76,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<mainClass>DatabaseService/src/main/java/org/lecture/DatabaseService.java</mainClass>
 				</configuration>
 			</plugin>
 
@@ -124,20 +125,6 @@
 				<groupId>com.lazerycode.jmeter</groupId>
 				<artifactId>jmeter-maven-plugin</artifactId>
 				<version>3.8.0</version>
-				<executions>
-					<execution>
-						<id>jmeter-tests</id>
-						<goals>
-							<goal>jmeter</goal>
-						</goals>
-						<configuration>
-							<testFilesDirectory>${project.basedir}/src/test/resources</testFilesDirectory>
-							<testFilesIncluded>
-								<jmeterTestFile>testplan.jmx</jmeterTestFile>
-							</testFilesIncluded>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
