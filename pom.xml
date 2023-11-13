@@ -7,6 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.5</version>
+		<relativePath/>
 	</parent>
 
 	<groupId>org</groupId>
@@ -63,19 +64,6 @@
 
 	</dependencies>
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.3.1</version>
-				<configuration>
-					<configLocation>checkstyle.xml</configLocation>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -94,7 +82,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.3.1</version>
+				<version>3.0.0</version>
 				<configuration>
 					<configLocation>config/checkstyle/checkstyle.xml</configLocation>
 				</configuration>
