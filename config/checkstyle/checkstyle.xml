@@ -8,7 +8,6 @@
         <module name="ConstantName"/>
         <module name="NoWhitespaceAfter"/>
         <module name="EmptyLineSeparator"/>
-        <module name="AvoidInstantiation"/>
         <module name="Indentation"/>
         <module name="MethodName"/>
     </module>
