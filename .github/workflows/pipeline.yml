@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java.version: '20'
+          java-version: '20'
       - run: mvn test
 
   checkStyle:
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java.version: '20'
+          java-version: '20'
       - run: mvn checkstyle:check
 
   pmd:
@@ -42,7 +42,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java.version: '20'
+          java-version: '20'
       - run: mvn pmd:check
 
   pitest:
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java.version: '20'
+          java-version: '20'
       - run: mvn org.pitest:pitest-maven:mutationCoverage
 
   jmeter:
@@ -70,7 +70,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java.version: '20'
+          java-version: '20'
       - run: mvn verify -Pjmeter-tests
 
   build:
@@ -78,11 +78,15 @@ jobs:
     name: Build
     needs:
       - test
+      - checkstyle
+      - pmd
+      - pitest
+      - jmeter
 
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
-          java.version: '20'
+          java-version: '20'
       - run: mvn package
