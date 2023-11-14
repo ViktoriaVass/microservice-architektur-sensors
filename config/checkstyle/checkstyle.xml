@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+    <module name="TreeWalker">
+        <module name="ConstantName"/>
+        <module name="NoWhitespaceAfter"/>
+        <module name="EmptyLineSeparator"/>
+        <module name="Indentation"/>
+        <module name="MethodName"/>
+    </module>
+</module>
