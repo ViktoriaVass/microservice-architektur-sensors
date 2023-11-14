@@ -12,12 +12,10 @@
 
 package org.lecture;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,6 +30,9 @@ public class Sensor {
     private String location;
     private Boolean isActive;
     private String type;
+
+    @OneToMany(mappedBy = "sensor", cascade = CascadeType.ALL)
+    private List<Measurement> measurements;
 
     public Sensor() {}     // default constructor for JPA
 
