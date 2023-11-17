@@ -1,5 +1,5 @@
 /**
- * The DatabaseService class serves as the entry point for the database service application.
+ * The DatabaseApplication class serves as the entry point for the database service application.
  * The main method in this class starts the Spring Boot application, allowing the database service to run.
  * To execute the database service, simply run this class with the main method.
  *
@@ -17,10 +17,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan; // Specifies th
 
 @SpringBootApplication
 @EntityScan(basePackages = "org.lecture")
-public class DatabaseService {
+public class DatabaseApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DatabaseService.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DatabaseApplication.class, args);
+    }
 
 }
