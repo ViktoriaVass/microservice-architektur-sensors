@@ -23,13 +23,14 @@ package org.lecture.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import org.lecture.entity.MeasurementEntity;
 import org.lecture.entity.SensorEntity;
-import org.lecture.service.MeasurementService;
-import org.lecture.service.SensorService;
+import org.lecture.interfaces.SensorService;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RefreshScope
 @RestController
 @RequestMapping("/sensor")
 public class SensorController {

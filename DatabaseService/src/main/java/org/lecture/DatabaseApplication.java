@@ -11,13 +11,26 @@
 
 package org.lecture;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication; // Indicates that this class is a Spring Boot application, enabling various features.
-import org.springframework.boot.autoconfigure.domain.EntityScan; // Specifies the base package(s) to scan for JPA entities within the application.
+import org.springframework.stereotype.Service;
 
 @SpringBootApplication
-@EntityScan(basePackages = "org.lecture")
+@Service
 public class DatabaseApplication {
+
+    @Value("${spring.datasource.driver-class-name}")
+    private String databaseDriver;
+
+    @Value("${spring.datasource.url}")
+    private String databaserUrl;
+
+    @Value("${spring.datasource.username}")
+    private String databaseUsername;
+
+    @Value("${spring.datasource.password}")
+    private String databasePassword;
 
     public static void main(String[] args) {
         SpringApplication.run(DatabaseApplication.class, args);

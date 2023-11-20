@@ -14,6 +14,7 @@ package org.lecture.service;
 
 import org.lecture.entity.MeasurementEntity;
 import org.lecture.entity.SensorEntity;
+import org.lecture.interfaces.MeasurementService;
 import org.lecture.repository.MeasurementRepository;
 import org.lecture.repository.SensorRepository;
 import org.springframework.stereotype.Service;

@@ -8,7 +8,7 @@
  * @package: org.lecture.service
  **/
 
-package org.lecture.service;
+package org.lecture.interfaces;
 
 import org.lecture.entity.MeasurementEntity;
 import org.lecture.entity.SensorEntity;
