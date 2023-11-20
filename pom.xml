@@ -43,7 +43,7 @@
 
 
     <dependencies>
-        <!-- <dependency>
+        <dependency>
            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
             <version>3.3.1</version>
@@ -54,17 +54,17 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
-        </dependency> -->
+        </dependency>
     </dependencies>
 
-  <!--  <build>
+  <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <configLocation>../config/checkstyle/checkstyle.xml</configLocation>
+                    <configLocation>config/checkstyle/checkstyle.xml</configLocation>
                 </configuration>
                 <executions>
                     <execution>
@@ -76,20 +76,14 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.14.0</version>
-                <configuration>
-                    <rulesets>
-                        <ruleset>config/pmd/ruleset.xml</ruleset>
-                    </rulesets>
-                </configuration>
-            </plugin>
-
-            <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.15.3</version>
+                <configuration>
+                    <targetTests>
+                        <param>org/lecture/*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -103,5 +97,5 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-    </build> -->
+    </build>
 </project>
