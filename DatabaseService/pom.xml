@@ -10,8 +10,6 @@
 	</parent>
 
 	<artifactId>DatabaseService</artifactId>
-	<name>DatabaseService</name>
-	<description>HA Microservice SWVS - DatabaseService</description>
 
 	<properties>
 		<maven.compiler.source>19</maven.compiler.source>
