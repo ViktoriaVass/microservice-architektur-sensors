@@ -77,19 +77,27 @@ public class MeasurementServiceImpl implements MeasurementService {
     /**
      * Updates an existing measurement.
      *
+     * @param measurement_id The Measurement ID which needs to be updated
      * @param measurementEntity The MeasurementEntity with updated information.
      * @return The updated MeasurementEntity.
      * @throws RuntimeException if the measurement with the given ID is not found.
      */
     @Override
-    public MeasurementEntity updateMeasurement(MeasurementEntity measurementEntity) {
-        Optional<MeasurementEntity> checkExistingMeasurement = findMeasurementById(measurementEntity.getMeasurement_id());
+    public void updateMeasurement(Long measurement_id, MeasurementEntity measurementEntity) {
+        Optional<MeasurementEntity> checkExistingMeasurement = findMeasurementById(measurement_id);
         if (!checkExistingMeasurement.isPresent()) {
-            throw new RuntimeException("Measurement with ID " + measurementEntity.getMeasurement_id() + " NOT FOUND!");
+            throw new RuntimeException("Measurement with ID " + measurement_id + " NOT FOUND!");
         }
 
-        return measurementRepository.save(measurementEntity);
+        MeasurementEntity updatedMeasurement = checkExistingMeasurement.get();
+
+        updatedMeasurement.setTimestamp(measurementEntity.getTimestamp());
+        updatedMeasurement.setTemperature(measurementEntity.getTemperature());
+        updatedMeasurement.setHumidity(measurementEntity.getHumidity());
+
+        measurementRepository.save(updatedMeasurement);
     }
+
 
     /**
      * Deletes a measurement by its ID.

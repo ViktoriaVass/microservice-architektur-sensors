@@ -66,7 +66,7 @@ public class SensorController {
      * @param sensorEntity The SensorEntity to be saved.
      * @return The saved SensorEntity.
      */
-    @Operation(summary = "Save new sensor")
+    @Operation(summary = "Add new sensor")
     @PostMapping
     public SensorEntity saveSensor(@RequestBody SensorEntity sensorEntity) {
         return sensorService.saveSensor(sensorEntity);
@@ -98,6 +98,7 @@ public class SensorController {
      * @param sensor_id The ID of the sensor for which measurements are requested.
      * @return List of MeasurementEntity representing all measurements for the specified sensor.
      */
+    @Operation(summary = "Show all measurements by sensor")
     @GetMapping("/{sensorId}/measurements")
     public List<MeasurementEntity> showAllMeasurementsBySensorId(@PathVariable("sensorId") Long sensor_id) {
         return sensorService.showAllMeasurementsBySensorId(sensor_id);

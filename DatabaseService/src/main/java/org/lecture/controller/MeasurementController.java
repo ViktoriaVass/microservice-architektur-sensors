@@ -72,7 +72,7 @@ public class MeasurementController {
      * @return The saved MeasurementEntity.
      * @throws RuntimeException if the associated sensor is not found.
      */
-    @Operation(summary = "Save new measurement")
+    @Operation(summary = "Add new measurement")
     @PostMapping("/{sensorId}")
     public MeasurementEntity saveMeasurement(
             @PathVariable("sensorId") Long sensorId,
@@ -90,9 +90,9 @@ public class MeasurementController {
      * @return The updated MeasurementEntity.
      */
     @Operation(summary = "Update measurement")
-    @PutMapping
-    public MeasurementEntity updateMeasurement(@RequestBody MeasurementEntity measurementEntity) {
-        return measurementService.updateMeasurement(measurementEntity);
+    @PutMapping("/{measurementId}")
+    public void updateMeasurement(@PathVariable("measurementId") Long measurement_id, @RequestBody MeasurementEntity measurementEntity) {
+        measurementService.updateMeasurement(measurement_id, measurementEntity);
     }
 
     /**

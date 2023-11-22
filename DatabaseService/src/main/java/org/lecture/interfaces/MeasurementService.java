@@ -23,7 +23,7 @@ public interface MeasurementService {
 
     MeasurementEntity saveMeasurement(SensorEntity sensorEntity, MeasurementEntity measurementEntity);
 
-    MeasurementEntity updateMeasurement(MeasurementEntity measurementEntity);
+    void updateMeasurement(Long measurement_id, MeasurementEntity measurementEntity);
 
     void deleteMeasurement(Long sensorId);
 }

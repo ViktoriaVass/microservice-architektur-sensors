@@ -12,6 +12,7 @@
 
 package org.lecture.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.lecture.entity.MeasurementEntity;
 import org.lecture.entity.SensorEntity;
 import org.lecture.interfaces.SensorService;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class SensorServiceImpl implements SensorService {
 
     private final SensorRepository sensorRepository;
@@ -65,21 +67,32 @@ public class SensorServiceImpl implements SensorService {
     /**
      * Updates an existing sensor.
      *
-     * @param sensro_id           The ID of the sensor to be updated.
+     * @param sensor_id           The ID of the sensor to be updated.
      * @param sensorEntity The SensorEntity with updated information.
      * @throws RuntimeException if the sensor with the given ID is not found.
      */
     @Override
-    public void updateSensor(Long sensro_id, SensorEntity sensorEntity) {
-        Optional<SensorEntity> checkExistingSensor = findSensorById(sensorEntity.getSensor_id());
+    public void updateSensor(Long sensor_id, SensorEntity sensorEntity) {
+        Optional<SensorEntity> checkExistingSensor = findSensorById(sensor_id);
         if (!checkExistingSensor.isPresent()) {
-            throw new RuntimeException("Sensor with ID " + sensorEntity.getSensor_id() + " NOT FOUND!");
+            throw new RuntimeException("Sensor with ID " + sensor_id + " NOT FOUND!");
         }
-        sensorRepository.getReferenceById(sensro_id).setName(sensorEntity.getName());
-        sensorRepository.getReferenceById(sensro_id).setLocation(sensorEntity.getLocation());
-        sensorRepository.getReferenceById(sensro_id).setType(sensorEntity.getType());
-        sensorRepository.getReferenceById(sensro_id).setIsActive(sensorEntity.getIsActive());
+
+        SensorEntity existingSensor = checkExistingSensor.get();
+
+        log.debug("Sensor for update: " + existingSensor);
+        log.debug("Updated Sensor: " + sensorEntity.toString());
+
+        existingSensor.setName(sensorEntity.getName());
+        existingSensor.setLocation(sensorEntity.getLocation());
+        existingSensor.setType(sensorEntity.getType());
+        existingSensor.setIsActive(sensorEntity.getIsActive());
+
+        log.debug("Updated Sensor After Changes: " + existingSensor);
+
+        sensorRepository.save(existingSensor);
     }
+
 
     /**
      * Deletes a sensor by its ID.
