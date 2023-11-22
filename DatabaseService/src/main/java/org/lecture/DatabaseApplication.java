@@ -14,8 +14,10 @@ package org.lecture;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication; // Indicates that this class is a Spring Boot application, enabling various features.
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.stereotype.Service;
 
+@EnableEurekaServer
 @SpringBootApplication
 @Service
 public class DatabaseApplication {
