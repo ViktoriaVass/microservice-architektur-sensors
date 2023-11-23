@@ -26,6 +26,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>31.0.1-jre</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -43,19 +50,12 @@
     <name>HA-microservices-architecure-vass-weidhofer</name>
     <description>HA Microservice SWVS - Parent POM</description>
 
-
     <dependencies>
         <dependency>
            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
             <version>3.3.1</version>
             <type>maven-plugin</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>31.0.1-jre</version>
         </dependency>
 
         <dependency>
@@ -76,7 +76,6 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.0.1-jre</version>
         </dependency>
     </dependencies>
 
@@ -85,7 +84,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.3.1</version>
                 <configuration>
                     <configLocation>config/checkstyle/checkstyle.xml</configLocation>
                 </configuration>
