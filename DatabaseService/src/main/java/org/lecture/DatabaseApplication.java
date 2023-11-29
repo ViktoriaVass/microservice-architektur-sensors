@@ -1,7 +1,7 @@
 /**
  * The DatabaseApplication class serves as the entry point for the database service application.
  * The main method in this class starts the Spring Boot application, allowing the database service to run.
- * To execute the database service, simply run this class with the main method.
+ * To run the database service, run ConfigurationApplication, ServiceRegistryApplication, ApiGatewayApplication and then this class.
  *
  * @project: SWVS HA Microservice Architecture
  * @authors: Viktoria Vass, Linda Weidhofer
@@ -25,20 +25,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@EnableDiscoveryClient
+@EnableDiscoveryClient // Activates the Discovery Client for service discovery
 @SpringBootApplication
 @Service
 public class DatabaseApplication {
 
+    /**
+     * The database driver
+     */
     @Value("${spring.datasource.driver-class-name}")
     private String databaseDriver;
 
+    /**
+     * The database URL
+     */
     @Value("${spring.datasource.url}")
     private String databaserUrl;
 
+    /**
+     * The username for the database
+     */
     @Value("${spring.datasource.username}")
     private String databaseUsername;
 
+    /**
+     * The password for the database
+     */
     @Value("${spring.datasource.password}")
     private String databasePassword;
 
@@ -48,12 +60,21 @@ public class DatabaseApplication {
 
 }
 
+/**
+ * REST Controller to handle service instance requests based on application name.
+ */
 @RestController
 class ServiceInstanceRestController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    /**
+     * Retrieves a list of service instances for a given application name.
+     *
+     * @param applicationName The name of the application to fetch service instances.
+     * @return A list of ServiceInstance objects representing instances of the specified application.
+     */
     @RequestMapping("/service-instances/{applicationName}")
     public List<ServiceInstance> serviceInstancesByApplicationName(
             @PathVariable String applicationName) {

@@ -21,7 +21,7 @@ import java.util.List;
 
 @EnableConfigServer
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableDiscoveryClient // Activates the Discovery Client for service discovery
 public class ConfigurationServerApplication {
 
     public static void main(String[] args) {
@@ -29,12 +29,21 @@ public class ConfigurationServerApplication {
     }
 }
 
+/**
+ * REST Controller to handle service instance requests based on application name.
+ */
 @RestController
 class ServiceInstanceRestController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    /**
+     * Retrieves a list of service instances for a given application name.
+     *
+     * @param applicationName The name of the application to fetch service instances.
+     * @return A list of ServiceInstance objects representing instances of the specified application.
+     */
     @RequestMapping("/service-instances/{applicationName}")
     public List<ServiceInstance> serviceInstancesByApplicationName(
             @PathVariable String applicationName) {

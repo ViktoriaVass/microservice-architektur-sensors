@@ -1,0 +1,28 @@
+server:
+  port: 8083
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: sensor-route
+          uri: ${SENSOR_ROUTE_URI:http://localhost:8080}
+          predicates:
+            - Path=/sensor/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+        - id: measurement-route
+          uri: ${MEASUREMENT_ROUTE_URI:http://localhost:8090}
+          predicates:
+            - Path=/measurement/**
+          filters:
+            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
