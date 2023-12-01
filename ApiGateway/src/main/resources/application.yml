@@ -1,4 +1,0 @@
-# Configuration Server Client
-server.port=8083
-spring.application.name=api-gateway
-spring.config.import=configserver:http://localhost:8081/
