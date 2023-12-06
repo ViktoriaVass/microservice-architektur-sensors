@@ -4,30 +4,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: sensor-route
-          uri: ${SENSOR_ROUTE_URI:http://localhost:8080}
+        - id: database-route
+          uri: lb://DATABASE-SERVICE
           predicates:
-            - Path=/sensor/**
-          filters:
-            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
-        - id: measurement-route
-          uri: ${MEASUREMENT_ROUTE_URI:http://localhost:8080}
-          predicates:
-            - Path=/measurement/**
-          filters:
-            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
-        - id: sensor-route-two
-          uri: ${SENSOR_ROUTE_TWO_URI:http://localhost:8090}
-          predicates:
-            - Path=/sensor/**
-          filters:
-            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
-        - id: measurement-route-two
-          uri: ${MEASUREMENT_ROUTE_TWO_URI:http://localhost:8090}
-          predicates:
-            - Path=/measurement/**
-          filters:
-            - AddResponseHeader=X-Powered-By, DanSON Gateway Service
+            - Path=/**
 
 management:
   endpoints:
