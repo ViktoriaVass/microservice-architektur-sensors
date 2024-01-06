@@ -18,12 +18,14 @@ import org.lecture.entity.SensorEntity;
 import org.lecture.interfaces.SensorService;
 import org.lecture.repository.SensorRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Slf4j
+@CrossOrigin(origins="http://localhost:4200")
 public class SensorServiceImpl implements SensorService {
 
     private final SensorRepository sensorRepository;

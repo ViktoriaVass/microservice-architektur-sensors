@@ -33,6 +33,7 @@ import java.util.Optional;
 @RefreshScope
 @RestController
 @RequestMapping("/sensor")
+@CrossOrigin(origins="http://localhost:4200")
 public class SensorController {
     private final SensorService sensorService;
 
