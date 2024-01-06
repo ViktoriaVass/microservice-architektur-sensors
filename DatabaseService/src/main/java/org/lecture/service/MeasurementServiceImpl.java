@@ -18,11 +18,13 @@ import org.lecture.interfaces.MeasurementService;
 import org.lecture.repository.MeasurementRepository;
 import org.lecture.repository.SensorRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@CrossOrigin(origins="http://localhost:4200")
 public class MeasurementServiceImpl implements MeasurementService {
 
     private final MeasurementRepository measurementRepository;
