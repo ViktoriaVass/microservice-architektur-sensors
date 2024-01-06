@@ -29,12 +29,10 @@ public class MeasurementEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "measurement_id")
-    @JsonIgnore
     private Long measurement_id;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sensor_id")
-    @JsonIgnore
     private SensorEntity sensorEntity;
 
     @Column(name = "timestamp")

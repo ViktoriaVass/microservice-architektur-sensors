@@ -29,7 +29,6 @@ public class SensorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sensor_id")
-    @JsonIgnore
     private Long sensor_id;
 
     @Column(name = "name")
