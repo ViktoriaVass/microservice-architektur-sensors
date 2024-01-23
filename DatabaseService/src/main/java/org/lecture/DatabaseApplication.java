@@ -51,7 +51,7 @@ public class DatabaseApplication {
     /**
      * The password for the database
      */
-    @Value("${spring.datasource.password}")
+    @Value("${SPRING_DATASOURCE_PASSWORD}")
     private String databasePassword;
 
     public static void main(String[] args) {
