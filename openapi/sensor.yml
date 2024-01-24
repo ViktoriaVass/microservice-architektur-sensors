@@ -1,0 +1,135 @@
+openapi: 3.0.3
+info:
+  title: SWVS HA Microservice Architecture
+  description: API Documentation for SensorController
+  version: 1.0.0
+paths:
+  /sensor/{sensorId}:
+    get:
+      summary: Get sensor by ID
+      parameters:
+        - name: sensorId
+          in: path
+          description: The ID of the sensor
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                sensor_id: 0
+                name: string
+                location: string
+                isActive: true
+                type: string
+
+    put:
+      summary: Update sensor
+      parameters:
+        - name: sensorId
+          in: path
+          description: The ID of the sensor
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Sensor data to be updated
+        required: true
+        content:
+          application/hal+json:
+            example:
+              sensor_id: 0
+              name: string
+              location: string
+              isActive: true
+              type: string
+      responses:
+        '200':
+          description: OK
+
+    delete:
+      summary: Delete sensor
+      parameters:
+        - name: sensorId
+          in: path
+          description: The ID of the sensor
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+
+  /sensor:
+    get:
+      summary: Get all sensors
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                - sensor_id: 0
+                  name: "string"
+                  location: "string"
+                  isActive: true
+                  type: "string"
+
+    post:
+      summary: Add new sensor
+      requestBody:
+        description: Sensor data to be added
+        required: true
+        content:
+          application/hal+json:
+            example:
+              sensor_id: 0
+              name: string
+              location: string
+              isActive: true
+              type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                sensor_id: 0
+                name: string
+                location: string
+                isActive: true
+                type: string
+
+  /sensor/{sensorId}/measurements:
+    get:
+      summary: Show all measurements by sensor
+      parameters:
+        - name: sensorId
+          in: path
+          description: The ID of the sensor
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                - measurement_id: 0
+                  sensorEntity:
+                    sensor_id: 0
+                    name: string
+                    location: string
+                    isActive: true
+                    type: string
+                  timestamp: "2024-01-24T21:07:01.269Z"
+                  temperature: 0
+                  humidity: 0

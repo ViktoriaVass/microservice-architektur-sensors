@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: SWVS HA Microservice Architecture
+  description: API Documentation for MeasurementController
+  version: 1.0.0
+
+paths:
+  /measurement:
+    get:
+      summary: Get all measurements
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                - measurement_id: 0
+                  sensorEntity:
+                    sensor_id: 0
+                    name: string
+                    location: string
+                    isActive: true
+                    type: string
+                  timestamp: "2024-01-24T21:29:35.637Z"
+                  temperature: 0
+                  humidity: 0
+
+  /measurement/{measurementId}:
+    get:
+      summary: Find measurement by ID
+      parameters:
+        - name: measurementId
+          in: path
+          description: The ID of the measurement
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                measurement_id: 0
+                sensorEntity:
+                  sensor_id: 0
+                  name: string
+                  location: string
+                  isActive: true
+                  type: string
+                timestamp: "2024-01-24T21:14:53.486Z"
+                temperature: 0
+                humidity: 0
+
+    put:
+      summary: Update measurement
+      parameters:
+        - name: measurementId
+          in: path
+          description: The ID of the measurement
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Measurement data to be updated
+        required: true
+        content:
+          application/hal+json:
+            example:
+              measurement_id: 0
+              sensorEntity:
+                sensor_id: 0
+                name: string
+                location: string
+                isActive: true
+                type: string
+              timestamp: "2024-01-24T21:14:53.475Z"
+              temperature: 0
+              humidity: 0
+      responses:
+        '200':
+          description: OK
+
+    post:
+      summary: Add new measurement
+      parameters:
+        - name: sensorId
+          in: path
+          description: The ID of the sensor
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Measurement data to be added
+        required: true
+        content:
+          application/hal+json:
+            example:
+              measurement_id: 0
+              sensorEntity:
+                sensor_id: 0
+                name: string
+                location: string
+                isActive: true
+                type: string
+              timestamp: "2024-01-24T21:17:10.992Z"
+              temperature: 0
+              humidity: 0
+      responses:
+        '200':
+          description: OK
+          content:
+            application/hal+json:
+              example:
+                measurement_id: 0
+                sensorEntity:
+                  sensor_id: 0
+                  name: string
+                  location: string
+                  isActive: true
+                  type: string
+                timestamp: "2024-01-24T21:17:10.994Z"
+                temperature: 0
+                humidity: 0
+
+    delete:
+      summary: Delete measurement
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the measurement
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
